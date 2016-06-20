@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Airport-Free-WiFi</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../dist/css/index.css">
+</head>
+
+<body>
+    <div class="webapp-container">
+        <div class="area area--fixed">
+            <header>
+                <section class="head container">
+                    <div class="head__logo f--l">
+                        <img src="../images/logo.png" alt="">
+                    </div>
+                    <div class="head__message f--r">
+                        <ul id="weatherMes">
+                            <li><img src="../images/sun.png" alt="ERROR"></li>
+                            <li>晴</li>
+                            <li>5~10</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="search container">
+                    <div class="search__inner">
+                        <input type="text" placeholder="请输入航班号">
+                    </div>
+                    <div class="search__btn">
+                        <button type="submit">
+                            <img src="../images/search.png" alt="">
+                        </button>
+                    </div>
+                </section>
+            </header>
+            <section class="headlink">
+                <div class="container" style="background:#fff">
+                    <ul>
+                        <a href="">
+                            <li>
+                                <img src="../images/link-h-1.png" alt="">
+                                <p>在限值机</p>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li>
+                                <img src="../images/link-h-2.png" alt="">
+                                <p>乘机指南</p>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li>
+                                <img src="../images/link-h-3.png" alt="">
+                                <p>交通指引</p>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li>
+                                <img src="../images/link-h-4.png" alt="">
+                                <p>地图导航</p>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li>
+                                <img src="../images/link-h-5.png" alt="">
+                                <p>投诉建议</p>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </section>
+            <section class="link">
+                <div class="container">
+                    <!-- * navigates container * -->
+                    <ul id="navigates"></ul>
+                </div>
+            </section>
+            <div class="swiper-container" style="background:#e6e5e5;height:138px;padding:10px 0 100px 0;">
+                <!-- * ads container * -->
+                <div class="swiper-wrapper" id="ads"></div>
+            </div>
+        </div>
+        <div class="area area--content">
+            <!-- * topic container * -->
+            <section class="banner" id="topic"></section>
+            <section class="news">
+                <div class="container">
+                    <div class="news-box">
+                        <div class="media-wraper">
+                            <!-- news coontainer -->
+                            <ul id="newsList"></ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <p>技术支持由&nbsp;掌慧纵盈旗下建飞网络</p>
+                <p>服务支持热线：020-36066999</p>
+                <p><a href="##">京ICP备12002594号-7</a></p>
+            </footer>
+        </div>
+        <section class="loading-tip hidden" id="loading-tip">
+            <div class="splashScreen">
+                <div class="x-spinner">
+                    <div class="x-spinner-item"></div>
+                    <div class="x-spinner-item"></div>
+                    <div class="x-spinner-item"></div>
+                </div>
+                &nbsp;正在努力为您加载··
+            </div>
+        </section>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+    <script src="../dist/js/index.bundle.js"></script>
+    <script>
+    $.ajax({
+        url: "http://aliostar.opsmarttech.com/portal/api/cdairport",
+        type: "GET",
+        async: false,
+        dataType: "html",
+        jsonp: "callback",
+        success: function(result) {
+            var dataObj = eval("(" + result + ")"); //转换为json对象
+            var ok = dataObj.ok;
+            if (ok) {
+                var title = dataObj.data.title;
+                var navigates = dataObj.data.navigate;
+                var ads = dataObj.data.adverse;
+                var topic = dataObj.data.topic;
+                var news = dataObj.data.news;
+                // title
+                document.title = title;
+                // navigates
+                var navigatesStr = "";
+                for (var i = 0; i < navigates.length; i++) {
+                    navigatesStr += '<a href="' + navigates[i].url + '">' + '<li>' + '<img src="' + navigates[i].icon + '" alt="">' + '<p>' + navigates[i].title + '</p>' + '</li>' + '</a>'
+                }
+                $("#navigates").append(navigatesStr);
+                //ads
+                var adsStr = "";
+                for (var i = 0; i < ads.length; i++) {
+                    adsStr += '<div class="swiper-slide">' + '<a href="' + navigates[i].url + '">' + '<img src="' + ads[i].cover + '" alt="">' + '</a>' + '</div>'
+                }
+                $("#ads").append(adsStr);
+                // topic
+                var topicStr = "";
+                topicStr = '<div class="item item--l">' + '<img src="' + topic.cover + '" alt="">' + '</div>' + '<div class="item item--r">' + '<div class="row">' + '<img src="../images/today-hot.png" alt="">' + '</div>' + '<div class="row">' + topic.title + '</div>' + '<div class="row">' + '<small>—' + topic.desc + '—</small>' + '</div>' + '</div>'
+                $("#topic").append(topicStr);
+                // news
+                var newsStr = "";
+                for (var i = 0; i < news.length; i++) {
+                    newsStr += '<li>' + '<a href="' + news[i].url + '">' + '<div class="media">' + '<div class="item item--l">' + '<img src="' + news[i].cover + '" alt="">' + '</div>' + '<div class="item item--r">' + '<h1>' + news[i].title + '</h1>' + '<p>' + news[i].desc + '</p>' + '</div>' + '</div>' + '</a>' + '</li>'
+                }
+                $("#newsList").append(newsStr);
+            }
+        },
+        error: function() {
+            alert("网络错误，请联系管理员！");
+        }
+    });
+    var mySwiper = new Swiper('.swiper-container', {
+        effect: 'coverflow',
+        slidesPerView: 2,
+        centeredSlides: true,
+        coverflow: {
+            rotate: -15,
+            stretch: 20,
+            depth: 60,
+            modifier: 2,
+            slideShadows: true
+        },
+        loop: true,
+        autoplay: 5000,
+    })
+    </script>
+</body>
+
+</html>

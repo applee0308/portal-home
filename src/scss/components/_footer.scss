@@ -1,0 +1,15 @@
+footer {
+    background: $lightgray;
+    padding: 5px 0;
+    font-size: .85rem;
+    color: $fontblack;
+    p{
+        margin: 5px 0;
+        text-align: center;
+        a {
+            text-decoration: none;
+            outline: none;
+            color: $fontblack;
+        }
+    }
+}

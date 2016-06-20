@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Airport-Free-WiFi</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../dist/css/index.css">
+</head>
+
+<body>
+    <div class="webapp-container">
+        <div class="area area--fixed" id="areaFixed" data-stellar-ratio="0.58">
+            <!-- @import './components/header' -->
+            <!-- @import './components/link' -->
+            <!-- @import './components/swiper' -->
+        </div>
+        <div class="area area--content" id="areaContent" data-stellar-ratio="1">
+            <!-- @import './components/banner' -->
+            <!-- @import './components/news' -->
+            <!-- @import './components/footer' -->
+        </div>
+        <!-- @import './components/loadingTip' -->
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+    <script src="../dist/js/index.bundle.js"></script>
+    <script>
+    window.onload = function() {
+      var fixContentHeight = $("#areaFixed").height() + "px";
+      $("#areaContent").css({
+        'margin-top': fixContentHeight
+      });
+      var mySwiper = new Swiper('.swiper-container', {
+          effect: 'coverflow',
+          slidesPerView: 2,
+          centeredSlides: true,
+          coverflow: {
+              rotate: -15,
+              stretch: 20,
+              depth: 90,
+              modifier: 2,
+              slideShadows: true
+          },
+          loop: true,
+          // autoplay: 2000,
+      })
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+@mixin clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+@mixin ellipsis($width:auto) {
+    width: $width;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+@mixin ellipsisLn($line:2) {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+}
+@mixin media-md-up() {
+  @media screen and (min-width: 641px) {
+    @content;
+  }
+}
+@mixin media-ip-sm() {
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3){ 
+        @content;
+    }
+    @media only screen and (min-device-width: 320px) and (max-device-width: 568px)and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71){ 
+        @content;
+    }      
+}

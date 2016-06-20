@@ -1,0 +1,26 @@
+@import './base/vars';
+@import './base/utils';
+.link {
+	padding: 15px 0 8px 0;
+	@include clearfix;
+	background: $lightgray;
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		li {
+			float: left;
+			width: 20%;
+			padding: 0;
+			color: $fontblack;
+			font-size: .85rem;
+			text-align: center;
+			img {
+				height: 40px;
+			}
+			p {
+				margin: 5px;
+			}
+		}
+	}
+}
