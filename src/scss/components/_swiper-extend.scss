@@ -7,3 +7,8 @@
 .swiper-slide-next img {
     opacity: .65;
 }
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+    display: none!important;
+}

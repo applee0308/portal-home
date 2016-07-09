@@ -1,14 +1,18 @@
 @import './base/vars';
 @import './base/utils';
 header {
-	background: $green;
+	background: $themecolor;
+	// without headlink need
+	// padding-bottom: 8px;
 }
 .head {
 	padding: 6px 0 10px 0;
 	@include clearfix;
 	&__logo {
+		line-height: 40px;
 		img {
-			height: 40px;
+			max-width: 170px;
+			max-height: 40px;
 			vertical-align: middle;
 		}
 	}
@@ -36,7 +40,7 @@ header {
 .search {
 	@include clearfix;
 	display: flex;
-	padding: 5px 0 16px 0;
+	padding: 5px 0 8px 0;
 	&__inner {
 		flex: 1;
 		input {

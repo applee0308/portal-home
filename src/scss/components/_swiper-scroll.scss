@@ -1,0 +1,22 @@
+.scroll {
+	background: $themecolor;
+	padding-bottom: 3px;
+}
+.swiper--scroll {
+	height: 28px;
+	border-top: 1px solid rgba(255,255,255,.25);
+	a {
+		line-height: 28px;
+		font-size: 14px;
+		color: #fff;
+		img {
+			vertical-align: middle;
+			height: 16px;
+			width: 25px;
+			margin-right: 8px;
+		}
+	}
+	span {
+		float: right;
+	}
+}

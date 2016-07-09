@@ -7,13 +7,13 @@
     <title>Airport-Free-WiFi</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="../dist/css/index.css">
-</head>
+    <link rel="stylesheet" href="../dist/css/tpl-headlink-3d.css">
 
 <body>
     <div class="webapp-container">
         <div class="area area--fixed" id="areaFixed" data-stellar-ratio="0.58">
             <!-- @import './components/header' -->
+            <!-- @import './components/headlink' -->
             <!-- @import './components/link' -->
             <!-- @import './components/swiper' -->
         </div>
@@ -22,16 +22,12 @@
             <!-- @import './components/news' -->
             <!-- @import './components/footer' -->
         </div>
-        <!-- @import './components/loadingTip' -->
+        <!-- @import './components/loading-tip' -->
     </div>
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
     <script src="../dist/js/index.bundle.js"></script>
     <script>
     window.onload = function() {
-      var fixContentHeight = $("#areaFixed").height() + "px";
-      $("#areaContent").css({
-        'margin-top': fixContentHeight
-      });
       var mySwiper = new Swiper('.swiper-container', {
           effect: 'coverflow',
           slidesPerView: 2,
@@ -46,6 +42,10 @@
           loop: true,
           // autoplay: 2000,
       })
+      var fixContentHeight = $("#areaFixed").height() + "px";
+      $("#areaContent").css({
+        'margin-top': fixContentHeight
+      });
     }
     </script>
 </body>

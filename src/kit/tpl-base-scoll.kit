@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="UTF-8">
@@ -7,54 +7,42 @@
     <title>Airport-Free-WiFi</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="../dist/css/index.css">
+    <link rel="stylesheet" href="../dist/css/tpl-base-scroll.css">
+    <script src="../dist/js/modernizr-custom.js"></script>
 </head>
 
 <body>
     <div class="webapp-container">
         <div class="area area--fixed" id="areaFixed" data-stellar-ratio="0.58">
             <!-- @import './components/header' -->
+            <!-- @import './components/cxsroll' -->
             <!-- @import './components/link' -->
-            <!-- @import './components/swiper' -->
         </div>
         <div class="area area--content" id="areaContent" data-stellar-ratio="1">
             <!-- @import './components/banner' -->
             <!-- @import './components/news' -->
             <!-- @import './components/footer' -->
         </div>
-        <!-- @import './components/loadingTip' -->
+        <!-- @import './components/loading-tip' -->
     </div>
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
     <script src="../dist/js/index.bundle.js"></script>
-    <!-- <script src="http://cdn.bootcss.com/stellar.js/0.6.2/jquery.stellar.min.js"></script> -->
     <script>
     $(function() {
-      // $.stellar();
+        $("#scroll").cxScroll({
+            direction: "bottom",
+            speed: 400,
+            time:2000
+        });
     })
     window.onload = function() {
-      var mySwiper = new Swiper('.swiper-container', {
-          effect: 'coverflow',
-          slidesPerView: 2,
-          centeredSlides: true,
-          coverflow: {
-              rotate: -15,
-              stretch: 20,
-              depth: 90,
-              modifier: 2,
-              slideShadows: true
-          },
-          loop: true,
-          // autoplay: 2000,
-      })
-      console.log($(".swiper-container").height());
-      var fixContentHeight = $("#areaFixed").height() + "px";
-      $("#areaContent").css({
-        'margin-top': fixContentHeight
-      });
+        var fixContentHeight = $("#areaFixed").height() + "px";
+            $("#areaContent").css({
+                'margin-top': fixContentHeight
+        });
     }
-    
-
     </script>
+    
 </body>
 
 </html>

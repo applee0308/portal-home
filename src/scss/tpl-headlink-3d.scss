@@ -2,13 +2,12 @@
 @import './base/normalize';
 @import './base/utils';
 @import './components/header';
+@import './components/headlink';
 @import './components/link';
 @import './components/banner';
 @import './components/news';
 @import './components/footer';
-@import './components/swiper-extend';
 @import './components/loadingTip';
-@import './vendor/swiper';
 html {
 	font-size: 16px;
 }
