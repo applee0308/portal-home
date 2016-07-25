@@ -1,9 +1,10 @@
 @import './base/vars';
 @import './base/utils';
-.headlink {
-	padding: 8px 0 5px 0;
+.link {
+	height: 89px;
+	padding: 15px 0 8px 0;
 	@include clearfix;
-	background: $themecolor;
+	background: $lightgray;
 	ul {
 		margin: 0;
 		padding: 0;
@@ -12,7 +13,7 @@
 			float: left;
 			width: 20%;
 			padding: 0;
-			color: $white;
+			color: $fontblack;
 			font-size: .85rem;
 			text-align: center;
 			img {
@@ -20,6 +21,7 @@
 			}
 			p {
 				margin: 5px;
+				color: #393939;
 			}
 		}
 	}

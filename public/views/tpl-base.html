@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,12 @@
     <title>Airport-Free-WiFi</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="../dist/css/tpl-base-scroll.css">
-    <script src="../dist/js/modernizr-custom.js"></script>
+    <link rel="stylesheet" href="../dist/css/tpl-base.css">
+    <style>
+        header{height: 103px;}
+        .headlink{height: 87px;}
+        .link{height: 89px;}
+    </style>
 </head>
 
 <body>
@@ -38,26 +42,6 @@
                     </div>
                 </section>
             </header>
-            <div class="scroll--h" id="scroll">
-                <div class="cxscroll container">
-                    <div class="box">
-                        <ul class="list">
-                            <li>
-                                <a href=""><img src="../images/station/voice.png" alt="">测试数据</a>
-                            </li>
-                            <li>
-                                <a href=""><img src="../images/station/voice.png" alt="">测试数据</a>
-                            </li>
-                            <li>
-                                <a href=""><img src="../images/station/voice.png" alt="">测试数据</a>
-                            </li>
-                            <li>
-                                <a href=""><img src="../images/station/voice.png" alt="">测试数据</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <section class="link">
                 <div class="container">
                     <ul>
@@ -95,7 +79,7 @@
                 </div>
             </section>
         </div>
-        <div class="area area--content" id="areaContent" data-stellar-ratio="1">
+        <div class="area area--content" id="areaContent" data-stellar-ratio="1" style="margin-top:194px;">
             <section class="banner">
                 <div class="item item--l">
                     <img src="../images/banner.jpg" alt="">
@@ -181,13 +165,6 @@
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
     <script src="../dist/js/index.bundle.js"></script>
     <script>
-    $(function() {
-        $("#scroll").cxScroll({
-            direction: "bottom",
-            speed: 400,
-            time: 2000
-        });
-    })
     window.onload = function() {
         var fixContentHeight = $("#areaFixed").height() + "px";
         $("#areaContent").css({
