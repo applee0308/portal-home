@@ -1,3 +1,7 @@
+//--------------------------------------
+// Mixin scss 
+//--------------------------------------
+// clear fix
 @mixin clearfix {
     &:before,
     &:after {
@@ -9,6 +13,7 @@
     }
 }
 
+// op for text
 @mixin ellipsis($width:auto) {
     width: $width;
     overflow: hidden;
@@ -25,12 +30,14 @@
     -webkit-line-clamp: $line;
 }
 
+// media
 @mixin media-md-up() {
     @media screen and (min-width: 641px) {
         @content;
     }
 }
 
+// iPhone 4 && iPhone 5
 @mixin media-ip-sm() {
     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
         @content;
