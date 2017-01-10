@@ -1,0 +1,255 @@
+.news2st {
+    background: $lightgray;
+    padding: 0;
+    .news2st__nav {
+        background: #fff;
+        ul {
+            display: flex;
+            margin: 0 0 .6em 0;
+            padding: 0;
+            list-style: none;
+            li {
+                flex: 1;
+                margin: .6em 0 .5em 0;
+                text-align: center;
+                border-right: 1px solid #ddd;
+                &:last-child {
+                    border: none;
+                }
+                a {
+                    display: block;
+                    font-size: 1em;
+                    line-height: 1.2em;
+                    text-decoration: none;
+                    outline: none;
+                    color: #999999;
+                    &.active {
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
+    .news2st__content {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+                display: none;
+                &.seen {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.artContent {
+    padding: .25em .4em;
+    min-height: 70vh;
+    border-radius: 1px;
+    dl {
+        margin: 0;
+        padding: 0;
+    }
+    dd {
+        margin: 0 0 .25em 0;
+        padding: 0;
+        border-bottom: 1px solid $themecolor;
+        &:last-child {
+            margin: 0;
+            border-bottom: none;
+        }
+        .item {
+            display: flex;
+            padding: .1em 0 .3em 0;
+            .item__l {
+                min-width: 85px;
+                margin-right: .5em;
+                img {
+                	vertical-align: middle;
+                    width: 85px;
+                    height: 69px;
+                }
+            }
+            .item__r {
+                flex: 1;
+                h2 {
+                    margin: 0 0 .25em 0;
+                    padding: 0 0 .25em 0;
+                    font-size: .85em;
+                    font-weight: 400;
+                    line-height: 1.55em;
+                    color: #333;
+                    @include ellipsisLn(2);
+                    height: 3.30em;
+                    border-bottom: 1px solid #ccc;
+                }
+                .item__r__detail {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .item__r__detail__resource {
+                    img {
+                        position: relative;
+                        top: 3px;
+                        height: 16px;
+                        border-radius: 2px;
+                    }
+                }
+            }
+        }
+    }
+    .viewTotal {
+        display: flex;
+        align-items: center;
+        span {
+            font-size: .75em;
+            color: #999;
+        }
+    }
+}
+
+.videoContent {
+    dl {
+        position: relative;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        dd {
+            margin: .2em 0 0 0;
+            width: 49.5%;
+            &:nth-of-type(1) {
+                width: 100%;
+            }
+        }
+        .item {
+            position: relative;
+            padding-bottom: 60%;
+            background-image: url(../../images/news2st/opsmart.png);
+            background-size: cover;
+            background-position: center center;
+            .description {
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                top: 50%;
+                transform: translateY(-50%);
+                text-align: center;
+                color: #fff;
+                font-size: .75em;
+                text-shadow: 0px 0px 5px black, 0px 0px 10px black, 0px 0px 15px black;
+                .title {
+                    @include ellipsisLn(1);
+                    font-size: 1.3em;
+                    line-height: 2.1;
+                }
+            }
+            .viewTotal {
+                position: absolute;
+                bottom: 8px;
+                left: 50%;
+                transform: translateX(-50%);
+                text-shadow: 0px 0px 5px black, 0px 0px 10px black, 0px 0px 15px black;
+                img {
+                	position: relative;
+                	top: 4px;
+                    width: 17px;
+                }
+                span {
+                    font-size: .8em;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.topicContent {
+    position: relative;
+    dl {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+    }
+    dd {
+        width: 49.6%;
+        margin: .2em 0 0 0;
+        padding: 0;
+        text-align: center;
+        .item {
+            position: relative;
+            .description {
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                top: 50%;
+                transform: translateY(-50%);
+                text-align: center;
+                color: #fff;
+                font-size: .75em;
+                text-shadow: 0px 0px 5px black, 0px 0px 10px black, 0px 0px 15px black;
+                .title {
+                    @include ellipsisLn(1);
+                    font-size: 1.3em;
+                    line-height: 2.1;
+                }
+            }
+            .viewTotal {
+                position: absolute;
+                bottom: 8px;
+                left: 50%;
+                transform: translateX(-50%);
+                text-shadow: 0px 0px 5px black, 0px 0px 10px black, 0px 0px 15px black;
+                img {
+                    width: 17px;
+                }
+                span {
+                    font-size: .8em;
+                    color: #fff;
+                }
+            }
+        }
+        .gutter {
+            width: 5px;
+        }
+        img {
+            vertical-align: middle;
+            width: 100%;
+        }
+    }
+}
+.videoLayer {
+	position: fixed;
+	z-index: 99;
+	display: none;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #ligtgray;
+	&_content {
+		margin: 0 auto;
+		max-width: 640px;
+		min-height: 100vh;
+		background: #000;
+		display: flex;
+		align-items: center;
+	}
+	&_closer {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		width: 100%;
+		text-align: right;
+	}
+	video {
+		width: 100%;
+	}
+}
